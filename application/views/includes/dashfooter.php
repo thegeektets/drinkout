@@ -31,7 +31,178 @@
     <script src="<?php echo base_url("assets/dashboard/js/flot/jquery.flot.categories.min.js");?>" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/dashboard/js/skycons/skycons.js");?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/script.js");?>"></script>
+    <script type="text/javascript">
 
+
+    function add_new(){
+    
+    var form = document.getElementById('new-spot');
+    var myfd = new FormData(form);   
+                  $.ajax({
+    url: "<?php echo base_url('index.php/spots/newspot') ?>",
+    type: "POST",
+    data:myfd,
+    processData: false,
+    contentType:false,
+
+    success: function (response) {
+
+                  console.log(response);
+
+               
+         if (response == '1'){
+                      $('#addmessage').attr("class" ,"alert-box success radius");
+                       $('#addmessage').append("<strong>Success!</strong> new spot added"); 
+                       $('#addmessage').append("<a href='#' class='close'>&times;</a>");
+        }
+        else{
+          
+                       $('#addmessage').attr("class" ,"alert-box warning radius");
+                       $('#addmessage').append("<strong>Warning!</strong> failed to add a new spot"); 
+                       $('#addmessage').append("<a href='#' class='close'>&times;</a>");
+        }
+                         
+ 
+    },
+    error: function (response) {
+                         console.log(response);
+                       $('#addmessage').attr("class" ,"alert-box danger radius");
+                       $('#addmessage').append("<strong>Error!</strong> failed server error"); 
+                       $('#addmessage').append("<a href='#' class='close'>&times;</a>");
+  
+    }
+});
+
+               return false;
+              }
+
+    function new_contribution(){
+       
+                  $.ajax({
+    url: "https://api.mongolab.com/api/1/databases/sheng/collections/queries?apiKey=Iwy7zOOBBd6lUzN5jBhLNhv68Wv8UfUl",
+    type: "POST",
+    data: JSON.stringify({"word":$('#word').val(),"definition":$('#definition').val()}),
+    contentType: "application/json",
+    success: function (response) {
+                        console.log(response);
+
+                       $('#addmessage').attr("class" ,"alert-box success radius");
+                       $('#addmessage').append("<strong>Success!</strong> new contribution added"); 
+                       $('#addmessage').append("<a href='#' class='close'>&times;</a>");
+ 
+    },
+    error: function (response) {
+                         console.log(response);
+                       $('#addmessage').attr("class" ,"alert-box warning radius");
+                       $('#addmessage').append("<strong>Warning!</strong> failed to add a new contribution"); 
+                       $('#addmessage').append("<a href='#' class='close'>&times;</a>");
+  
+    }
+});
+
+               return false;
+              }
+
+  function decline(key){
+       
+                  $.ajax({
+    url: "https://api.mongolab.com/api/1/databases/sheng/collections/queries/"+key+"/?apiKey=Iwy7zOOBBd6lUzN5jBhLNhv68Wv8UfUl",
+    type: "DELETE",
+    data: JSON.stringify([]),
+      contentType: "application/json",
+    success: function (response) {
+                        console.log(response);
+
+                       $('#message').attr("class" ,"alert-box success radius");
+                       $('#message').append("<strong>Success!</strong> declined"); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+
+                         return true;
+      
+ 
+    },
+    error: function (response) {
+                         console.log(response);
+                       $('#message').attr("class" ,"alert-box warning radius");
+                       $('#message').append("<strong>Warning!</strong> failed to decline"); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+                         return true;
+      
+  
+    }
+});
+                }
+
+  function delete_word(key){
+       
+                  $.ajax({
+    url: "https://api.mongolab.com/api/1/databases/sheng/collections/dictionary/"+key+"/?apiKey=Iwy7zOOBBd6lUzN5jBhLNhv68Wv8UfUl",
+    type: "DELETE",
+    data: JSON.stringify([]),
+      contentType: "application/json",
+    success: function (response) {
+                        console.log(response);
+
+                       $('#message').attr("class" ,"alert-box success radius");
+                       $('#message').append("<strong>Success!</strong> deleted "); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+
+                    
+      
+ 
+    },
+    error: function (response) {
+                         console.log(response);
+                       $('#message').attr("class" ,"alert-box warning radius");
+                       $('#message').append("<strong>Warning!</strong> failed to delete"); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+                       
+  
+    }
+});
+                    return false; 
+                }
+
+
+
+ function approve(key){
+       
+                  $.ajax({
+    url: "https://api.mongolab.com/api/1/databases/sheng/collections/dictionary?apiKey=Iwy7zOOBBd6lUzN5jBhLNhv68Wv8UfUl",
+    type: "POST",
+    data: JSON.stringify({"word":$('#word').html(),"definition_1":$('#definition').html()}),
+    contentType: "application/json",
+    success: function (response) {
+
+                           $.ajax({
+                        url: "https://api.mongolab.com/api/1/databases/sheng/collections/queries/"+key+"/?apiKey=Iwy7zOOBBd6lUzN5jBhLNhv68Wv8UfUl",
+                        type: "DELETE",
+                        data: JSON.stringify([]),
+                          contentType: "application/json"
+                        });
+
+
+
+                        console.log(response);
+
+                       $('#message').attr("class" ,"alert-box success radius");
+                       $('#message').append("<strong>Success!</strong> word approved"); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+ 
+    },
+    error: function (response) {
+                         console.log(response);
+                       $('#message').attr("class" ,"alert-box warning radius");
+                       $('#message').append("<strong>Warning!</strong> failed to add a new word"); 
+                       $('#message').append("<a href='#' class='close'>&times;</a>");
+  
+    }
+});
+
+               return false;
+              }
+
+    </script>
 
 
     <script type="text/javascript">

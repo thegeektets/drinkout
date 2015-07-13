@@ -12,7 +12,7 @@ $this->load->helper('url');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
-	<title>NOMA SANA </title>
+	<title>DRINK OUT</title>
 	
     <!-- This file is part of a site template for sale at ThemeForest.net.
          See: http://themeforest.net/user/dilipkumar/portfolio
@@ -112,7 +112,7 @@ $this->load->helper('url');
 	<div class="header-wrap row">
 		<div class="large-12 columns">
 			<div class="logo">
-				<h1><a href="<?php echo base_url(); ?>"> NOMA SANA </a></h1>
+				<h1><a href="<?php echo base_url(); ?>"> DRINK OUT </a></h1>
 			</div>
 
 			<?php 

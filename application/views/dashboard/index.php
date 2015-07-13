@@ -19,7 +19,7 @@
                     <div id="tree-wrap">
                         <!-- Profile -->
                         <div class="profile">
-                                  <h3><a href='<?php echo base_url();?>' style="color:#fff">NOMA SANA</a></h3>
+                                  <h3><a href='<?php echo base_url();?>' style="color:#fff">DRINK OUT</a></h3>
 
 
                         </div>
@@ -39,7 +39,7 @@
                                 <li>
                                     <a class="tooltip-tip" href="#">
                                         <i class=" icon-window"></i>
-                                        <span>SHENG</span>
+                                        <span>NIGHTLIFE</span>
 
                                     </a>
                                     <ul>
@@ -48,16 +48,16 @@
 
                                         ?>
                                         <li>
-                                            <a href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
+                                            <a href="<?php echo base_url('index.php/spots/add_new'); ?>">ADD SPOT</a>
                                         </li>
 
                                         <?php } ?>
                                         <li>
-                                             <a href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
+                                             <a href="<?php echo base_url('index.php/spots/list'); ?>">CLUBS AND SPOTS</a>
                               
                                         </li>
                                         <li>
-                                                <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
+                                                <a href="<?php echo base_url('index.php/spots/events'); ?>">EVENTS</a>
                              
                                         </li>  
                                      
@@ -67,14 +67,7 @@
 
                               
 
-                                <li>
-                                    <a class="tooltip-tip" href="<?php echo base_url('index.php/users/dictionary'); ?>" title="Mail">
-                                        <i class=" icon-mail"></i>
-                                        <span>SHENG DICTIONARY</span>
-
-                                    </a>
-                                   
-                                </li>
+                              
                              
                             </ul>
                         </div>

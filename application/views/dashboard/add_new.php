@@ -17,7 +17,7 @@
                     <div id="tree-wrap">
                         <!-- Profile -->
                         <div class="profile">
-                                <h3><a href='<?php echo base_url();?>' style="color:#fff">NOMA SANA</a></h3>
+                                <h3><a href='<?php echo base_url();?>' style="color:#fff">DRINK OUT</a></h3>
 
                         </div>
                         <!-- End of Profile -->
@@ -33,44 +33,35 @@
                                     </a>
 
                                 </li>
-                                <li >
+                                                               <li>
                                     <a class="tooltip-tip" href="#">
                                         <i class=" icon-window"></i>
-                                        <span>SHENG</span>
+                                        <span>NIGHTLIFE</span>
 
                                     </a>
                                     <ul>
-
-                                              <?php 
+      <?php 
                                      if($this->session->userdata('status') == 1){
 
                                         ?>
                                         <li>
-                                            <a href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
+                                            <a href="<?php echo base_url('index.php/spots/add_new'); ?>">ADD SPOT</a>
                                         </li>
 
                                         <?php } ?>
                                         <li>
-                                            <a  href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
+                                             <a href="<?php echo base_url('index.php/spots/list'); ?>">CLUBS AND SPOTS</a>
+                              
                                         </li>
-                                         <li>
-                                            <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
+                                        <li>
+                                                <a href="<?php echo base_url('index.php/spots/events'); ?>">EVENTS</a>
+                             
                                         </li>  
                                      
                         
                                     </ul>
                                 </li>
 
-                              
-
-                                <li class="active">
-                                    <a class="tooltip-tip" href="<?php echo base_url('index.php/users/dictionary'); ?>" title="Mail">
-                                        <i class=" icon-mail"></i>
-                                        <span>SHENG DICTIONARY</span>
-
-                                    </a>
-                                   
-                                </li>
                              
                             </ul>
                         </div>
@@ -142,7 +133,7 @@
                 <ul class="breadcrumbs">
                     <li><a href="#"><span class="entypo-home"></span></a>
                     </li>
-                    <li> Add New Word
+                    <li> Add New Spot
                     </li>
                    
                 </ul>
@@ -157,22 +148,56 @@
                             
                                     <div class="large-9 columns">
                                     <div id="addmessage"></div>
-                                        <form data-abide id="new-word" name="new-word" onsubmit="return add_new();">
+                                        <form data-abide id="new-spot" name="new-spot" onsubmit="return add_new();" enctype ='multipart/form-data'>
                                             <div class="name-field">
-                                                <label>Sheng Word <small>required</small>
-                                                    <input type="text" required pattern="[a-zA-Z]+" name="word" id="word">
+                                                <label>Club Name <small>required</small>
+                                                    <input type="text" required pattern="[a-zA-Z]+" name="spot" id="spot">
+                                                </label>
+                                                <small class="error"> A name is required and must be a string.</small>
+                                            </div>
+                                            
+                                            <div class="name-field">
+                                                <label>Club Image <small>required</small>
+                                                    <input type="file" required name="image" id="image">
+                                                </label>
+                                                <small class="error"> An image is required and must be a string.</small>
+                                            </div>
+                                            
+                                            <div class="location-field">
+                                                <label>Location <small>required</small>
+                                                    <input type="text" required pattern="[a-zA-Z]+" name="location" id="location">
+                                                </label>
+                                                <small class="error"> A location is required and must be a string.</small>
+                                            </div>
+                                            
+                                            <div class="price-field">
+                                                <label>Price Range per Drink <small>required</small>
+                                                    <input type="text" required  name="price" id="price">
+                                                </label>
+                                                <small class="error"> A range is required and must be a string.</small>
+                                            </div>
+
+                                           <div class="music-field">
+                                                <label>Music     <small>required</small>
+                                                      <input id="livebands" type="checkbox"><label for="livebands">Live Bands</label>
+                                                      <input id="djmusic" type="checkbox"><label for="djmusic">Good Dj Music</label>
+                                                      <input id="ambientmusic" type="checkbox"><label for="ambientmusic">Ambient Music</label>
+
                                                 </label>
                                                 <small class="error"> A Word is required and must be a string.</small>
                                             </div>
+
+
+
                                             <div class="7-field">
-                                                <label>Definition <small>required</small>
-                                                    <textarea type="text" required name="definition" id="definition">
+                                                <label>Description <small>required</small>
+                                                    <textarea type="text" required name="description" id="description">
                                                     </textarea>
                                                 </label>
                                                 <small class="error">An definition is required.</small>
                                             </div>
                                            
-                                            <button  type="submit" class="tiny">Submit</button>
+                                            <button style="background:#18453B"  type="submit" class="tiny">Submit</button>
                                         </form>
 
 

@@ -8,7 +8,7 @@ $this->load->helper('url');
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOMA SANA</title>
+    <title>DRINK OUT</title>
 
       <link rel="stylesheet" type="text/css" href="<?php echo base_url("/assets/dashboard/css/custom.css")?>" />
 

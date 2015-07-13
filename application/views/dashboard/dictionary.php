@@ -34,46 +34,35 @@
                                     </a>
 
                                 </li>
-                                <li>
+                                                               <li>
                                     <a class="tooltip-tip" href="#">
                                         <i class=" icon-window"></i>
-                                        <span>SHENG</span>
+                                        <span>NIGHTLIFE</span>
 
                                     </a>
                                     <ul>
-                                    <?php 
+      <?php 
                                      if($this->session->userdata('status') == 1){
 
                                         ?>
                                         <li>
-                                            <a href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
+                                            <a href="<?php echo base_url('index.php/spots/add_new'); ?>">ADD SPOT</a>
                                         </li>
 
                                         <?php } ?>
                                         <li>
-                                           <a href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
+                                             <a href="<?php echo base_url('index.php/spots/list'); ?>">CLUBS AND SPOTS</a>
                               
                                         </li>
                                         <li>
-                                                <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
+                                                <a href="<?php echo base_url('index.php/spots/events'); ?>">EVENTS</a>
                              
                                         </li>  
                                      
                         
                                     </ul>
                                 </li>
-
-                              
-
-                                <li class="active">
-                                    <a id="menu-select" class="tooltip-tip" href="<?php echo base_url('index.php/users/dictionary'); ?>" title="Mail">
-                                        <i class=" icon-mail"></i>
-                                        <span>SHENG DICTIONARY</span>
-
-                                    </a>
-                                   
-                                </li>
-                             
+                                
                             </ul>
                         </div>
                                         
